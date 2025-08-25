@@ -1,0 +1,171 @@
+{
+  "materials": [
+    {
+      "name": "MILKBOARD",
+      "gsm": 360,
+      "price_per_tonne": 1350
+    },
+    {
+      "name": "FBB",
+      "gsm": 330,
+      "price_per_tonne": 1350
+    },
+    {
+      "name": "KRAFT",
+      "gsm": 325,
+      "price_per_tonne": 1600
+    },
+    {
+      "name": "2S KRAFT",
+      "gsm": 337,
+      "price_per_tonne": 1100
+    }
+  ],
+  "lamination": {
+    "stocks": [
+      {
+        "key": "gloss",
+        "name": "Gloss",
+        "price_per_tonne": 5250
+      },
+      {
+        "key": "matte",
+        "name": "Matte",
+        "price_per_tonne": 5500
+      }
+    ],
+    "film_gsm": 24
+  },
+  "windowFilms": [
+    {
+      "key": "pet",
+      "name": "PET",
+      "gsm": 103,
+      "price_per_tonne": 4150
+    },
+    {
+      "key": "ca",
+      "name": "Cellulose Acetate",
+      "gsm": 97,
+      "price_per_tonne": 28500
+    }
+  ],
+  "rates": {
+    "sheet": {
+      "setup_hr": 1.5,
+      "setup_rate": 40,
+      "sph": 2000,
+      "run_rate": 35
+    },
+    "die": {
+      "setup_hr": 1.5,
+      "setup_rate": 40,
+      "sph": 1100,
+      "run_rate": 40
+    },
+    "lam": {
+      "setup_hr": 1.5,
+      "rate": 35,
+      "sph": 1000
+    },
+    "wp": {
+      "setup_hr": 1.5,
+      "rate": 35,
+      "pph": 800
+    },
+    "glue": {
+      "sph": 2000,
+      "op1": 35,
+      "op2": 45
+    },
+    "print": {
+      "sph": 5000,
+      "combined_rate": 65,
+      "setup_hr": 1.0
+    }
+  },
+  "ink": {
+    "price_per_kg": 0,
+    "g_per_m2_100pct": 1.5
+  },
+  "coating": {
+    "price_per_kg": 0,
+    "g_per_m2_100pct": 2.0,
+    "rate": 0
+  },
+  "dieMakeReadyBuckets": {
+    "simple": 20,
+    "standard": 50,
+    "intricate": 75,
+    "very": 100
+  },
+  "lamMakeReadyPct": 0.02,
+  "wpMakeReadyPct": 0.015,
+  "glueSetups": {
+    "sl": {
+      "setup_hr": 3,
+      "mr_pieces_pct": 0.03,
+      "mr_fixed": 0
+    },
+    "cl": {
+      "setup_hr": 6,
+      "mr_pieces_pct": 0.06,
+      "mr_fixed": 0
+    },
+    "c4": {
+      "setup_hr": 4,
+      "mr_pieces_pct": 0,
+      "mr_fixed": 500
+    },
+    "c6": {
+      "setup_hr": 5,
+      "mr_pieces_pct": 0,
+      "mr_fixed": 750
+    }
+  },
+  "printMR": {
+    "baseSheets": 50,
+    "perColourSheets": 25,
+    "coatingAdderSheets": 20,
+    "varnishAdderSheets": 10
+  },
+  "qtyOptions": [
+    1000,
+    2500,
+    3000,
+    5000,
+    10000,
+    15000,
+    20000,
+    25000,
+    30000,
+    35000,
+    40000,
+    50000,
+    60000,
+    70000,
+    80000,
+    90000,
+    100000
+  ],
+  "pricing": {
+    "round_inc": 0.5,
+    "pretty_end": "0.95",
+    "default_strategy": "margin",
+    "default_target": 0.25
+  },
+  "minMarkupTiers": [
+    {
+      "minQty": 10000,
+      "minMarkup": 0.5
+    },
+    {
+      "minQty": 5000,
+      "minMarkup": 0.6
+    },
+    {
+      "minQty": 1000,
+      "minMarkup": 0.7
+    }
+  ]
+}

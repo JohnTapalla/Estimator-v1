@@ -1,9 +1,11 @@
 
 import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+
 
 const money = new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD' })
 const DF_MATERIALS = [
@@ -76,6 +78,39 @@ export default function App(){
     }
     if(qty>=10000) return 0.50; if(qty>=5000) return 0.60; if(qty>=1000) return 0.70; return 0
   }
+
+  const reportRef = useRef<HTMLDivElement>(null)
+
+  function handlePrint(){
+    const el = reportRef.current
+    if(!el) return
+    const win = window.open('', 'PRINT', 'height=842,width=595')
+    if(!win) return
+    win.document.write(`
+      <html>
+      <head>
+        <title>Quote – ${sizeName || 'Custom'}</title>
+      <style>
+        *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+        body{padding:24px;color:#111}
+        h1{font-size:20px;margin:0 0 8px}
+        h2{font-size:14px;margin:16px 0 8px;color:#444}
+        .grid{display:grid;grid-template-columns:1fr auto;gap:6px 16px}
+        .hr{height:1px;background:#e5e7eb;margin:12px 0}
+        .muted{color:#6b7280}
+        .right{text-align:right}
+        .small{font-size:12px}
+        .bold{font-weight:600}
+        table{width:100%;border-collapse:collapse;margin-top:6px}
+        th,td{padding:6px 0;border-bottom:1px solid #e5e7eb;font-size:12px}
+        th{text-align:left;color:#6b7280;font-weight:500}
+      </style>
+    </head>
+    <body>${el.innerHTML}</body>
+    </html>
+  `)
+  win.document.close(); win.focus(); win.print(); win.close()
+}
 
   const [orderQty,setOrderQty]=useState(10000)
   const [len,setLen]=useState(720)
@@ -530,5 +565,87 @@ export default function App(){
         </Card>
       </div>
     </div>
+        {/* ===== Results (Report v2) – keeps V1 intact ===== */}
+<Card className="shadow-sm">
+  <CardHeader>
+    <CardTitle className="text-xl flex items-center justify-between">
+      <span>Results (Report v2)</span>
+      <button
+        type="button"
+        onClick={handlePrint}
+        className="no-print inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
+      >
+        Print report
+      </button>
+    </CardTitle>
+  </CardHeader>
+
+  <CardContent className="space-y-4">
+    {/* hide this on screen; only for printing */}
+    <style>{`
+      @media screen { #print-area { display: none; } }
+      @media print  { .no-print { display: none !important; } }
+    `}</style>
+
+    <div id="print-area" ref={reportRef}>
+      <h1>Quotation Summary</h1>
+      <div className="small muted">Generated: {new Date().toLocaleString()}</div>
+
+      <div className="hr" />
+      <h2>Job</h2>
+      <div className="grid small">
+        <div className="muted">Preset</div><div className="right bold">{sizeName}</div>
+        <div className="muted">Order qty</div><div className="right">{orderQty.toLocaleString()}</div>
+        <div className="muted">Units / sheet</div><div className="right">{nUp}</div>
+        <div className="muted">Sheet length (mm)</div><div className="right">{len}</div>
+        <div className="muted">Sheet width (mm)</div><div className="right">{wid}</div>
+        <div className="muted">Material</div><div className="right">{mat.name} · {mat.gsm}gsm</div>
+      </div>
+
+      <div className="hr" />
+      <h2>Sheet & Process</h2>
+      <div className="grid small">
+        <div className="muted">Sheet area (m²)</div><div className="right">{a ? a.toFixed(4) : '—'}</div>
+        <div className="muted">Paper kg / sheet</div><div className="right">{paperKgPerSheet ? paperKgPerSheet.toFixed(6) : '—'}</div>
+        <div className="muted">Base sheets</div><div className="right">{baseSheets.toLocaleString()}</div>
+        <div className="muted">Die MR (sheets)</div><div className="right">{dieWasteSheets.toLocaleString()}</div>
+        <div className="muted">Lam MR (sheets)</div><div className="right">{lamWasteSheets.toLocaleString()}</div>
+        ${printOn ? `
+          <div class="muted">Print MR (sheets)</div><div class="right">${(printing?.mrSheets ?? 0).toLocaleString?.() || printing.mrSheets}</div>
+          <div class="muted">Sheets to print</div><div class="right">${(printing?.printSheets ?? 0).toLocaleString?.() || printing.printSheets}</div>
+        ` : ''}
+      </div>
+
+      <div className="hr" />
+      <h2>Cost breakdown (per unit)</h2>
+      <table>
+        <thead><tr><th>Component</th><th className="right">$/unit</th></tr></thead>
+        <tbody>
+          <tr><td>Material</td><td className="right">{money.format(materialPerUnit||0)}</td></tr>
+          <tr><td>Sheeting</td><td className="right">{money.format(sheeting.perUnit||0)}</td></tr>
+          <tr><td>Die cut</td><td className="right">{money.format(diecut.perUnit||0)}</td></tr>
+          <tr><td>Printing</td><td className="right">{money.format(printing.perUnit||0)}</td></tr>
+          <tr><td>Lamination</td><td className="right">{money.format(lamination.perUnit||0)}</td></tr>
+          <tr><td>Window patch</td><td className="right">{money.format(windowPatch.perUnit||0)}</td></tr>
+          <tr><td>Gluing</td><td className="right">{money.format(gluing.perUnit||0)}</td></tr>
+          <tr><td className="bold">Combined unit cost</td><td className="right bold">{money.format(unitCost||0)}</td></tr>
+        </tbody>
+      </table>
+
+      <div className="hr" />
+      <h2>Pricing</h2>
+      <div className="grid small">
+        <div className="muted">Sell / unit (ex-GST)</div><div className="right bold">{money.format(sellPer1000/1000)}</div>
+        <div className="muted">Sell / 1,000 (ex-GST)</div><div className="right bold">{money.format(sellPer1000)}</div>
+        <div className="muted">Order total (ex-GST)</div><div className="right">{money.format(orderEx)}</div>
+        <div className="muted">GST (10%)</div><div className="right">{money.format(orderInc-orderEx)}</div>
+        <div className="muted">Total inc-GST</div><div className="right bold">{money.format(orderInc)}</div>
+        <div className="muted">Margin achieved</div><div className="right">{(marginAch*100).toFixed(1)}%</div>
+        <div className="muted">Markup achieved</div><div className="right">{(markupAch*100).toFixed(1)}%</div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
   )
 }

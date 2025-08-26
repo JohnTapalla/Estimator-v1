@@ -1,0 +1,950 @@
+[
+  {
+    "name": "Custom",
+    "len": 720,
+    "wid": 530,
+    "nUp": 1
+  },
+  {
+    "name": "4x4x3",
+    "len": 460,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "6x6x3",
+    "len": 330,
+    "wid": 587,
+    "nUp": 1
+  },
+  {
+    "name": "6x6x4",
+    "len": 620,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "7x7x3",
+    "len": 350,
+    "wid": 600,
+    "nUp": 1
+  },
+  {
+    "name": "7x7x4",
+    "len": 690,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "7x7x5",
+    "len": 455,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "8x8x2.5",
+    "len": 400,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "8x8x3",
+    "len": 660,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "8x8x4",
+    "len": 740,
+    "wid": 880,
+    "nUp": 2
+  },
+  {
+    "name": "8x8x5",
+    "len": 480,
+    "wid": 840,
+    "nUp": 1
+  },
+  {
+    "name": "8x8x6",
+    "len": 510,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "9x9x2.5",
+    "len": 410,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "9x9x3",
+    "len": 740,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "9x9x4",
+    "len": 460,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "10x10x2.5",
+    "len": 740,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "10x10x3",
+    "len": 430,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "10x10x4",
+    "len": 480,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "10x10x6",
+    "len": 600,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "11x11x2.5",
+    "len": 450,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "11x11x4",
+    "len": 510,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "11x11x5",
+    "len": 540,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "12x12x2.5",
+    "len": 460,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "12x12x4",
+    "len": 920,
+    "wid": 587,
+    "nUp": 1
+  },
+  {
+    "name": "12x12x6 base",
+    "len": 540,
+    "wid": 667,
+    "nUp": 1
+  },
+  {
+    "name": "12x12x6 lid",
+    "len": 420,
+    "wid": 587,
+    "nUp": 1
+  },
+  {
+    "name": "13x13x4",
+    "len": 560,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "8x8x2.5 (WA)",
+    "len": 610,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "5\" Tulip",
+    "len": 400,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "6\" Tulip",
+    "len": 460,
+    "wid": 880,
+    "nUp": 2
+  },
+  {
+    "name": "8\" Tulip",
+    "len": 620,
+    "wid": 600,
+    "nUp": 1
+  },
+  {
+    "name": "10\" Tulip",
+    "len": 720,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "12\" Tulip",
+    "len": 740,
+    "wid": 820,
+    "nUp": 1
+  },
+  {
+    "name": "6x6x3 (4 Corner Glued)",
+    "len": 610,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "B06553/500UM",
+    "len": 400,
+    "wid": 520,
+    "nUp": 1
+  },
+  {
+    "name": "B074MEZZAPICA",
+    "len": 400,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "B07553",
+    "len": 587,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "B083-QUEENS",
+    "len": 720,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "B084HELLENIC",
+    "len": 430,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "B084MEZZAPICA",
+    "len": 430,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "B085/600UM",
+    "len": 480,
+    "wid": 854,
+    "nUp": 1
+  },
+  {
+    "name": "B085B",
+    "len": 480,
+    "wid": 883,
+    "nUp": 1
+  },
+  {
+    "name": "B09175/500UM",
+    "len": 349,
+    "wid": 587,
+    "nUp": 1
+  },
+  {
+    "name": "B0925/600UM",
+    "len": 660,
+    "wid": 854,
+    "nUp": 2
+  },
+  {
+    "name": "B0925K",
+    "len": 660,
+    "wid": 840,
+    "nUp": 2
+  },
+  {
+    "name": "B093-LODE",
+    "len": 410,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "B095/500UM",
+    "len": 510,
+    "wid": 883,
+    "nUp": 1
+  },
+  {
+    "name": "B095K",
+    "len": 510,
+    "wid": 900,
+    "nUp": 1
+  },
+  {
+    "name": "B099/600UM",
+    "len": 1000,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "B1011/500UM",
+    "len": 1200,
+    "wid": 885,
+    "nUp": 1
+  },
+  {
+    "name": "B103-QUEENS",
+    "len": 450,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "B1045/500UM",
+    "len": 510,
+    "wid": 883,
+    "nUp": 1
+  },
+  {
+    "name": "B1045/600UM",
+    "len": 510,
+    "wid": 940,
+    "nUp": 1
+  },
+  {
+    "name": "B104HELLENIC",
+    "len": 490,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "B104MEZZAPICA",
+    "len": 490,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "B105/500UM(WA)",
+    "len": 560,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "B105/600UM",
+    "len": 530,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B114MEZZAPICA",
+    "len": 510,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B115/600UM",
+    "len": 560,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B115K",
+    "len": 560,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B115W-PELLIGRA",
+    "len": 570,
+    "wid": 970,
+    "nUp": 1
+  },
+  {
+    "name": "B116/600UM",
+    "len": 660,
+    "wid": 1030,
+    "nUp": 1
+  },
+  {
+    "name": "B1215/600UM",
+    "len": 854,
+    "wid": 740,
+    "nUp": 2
+  },
+  {
+    "name": "B123/500UM",
+    "len": 480,
+    "wid": 883,
+    "nUp": 1
+  },
+  {
+    "name": "B123/600UM",
+    "len": 480,
+    "wid": 854,
+    "nUp": 1
+  },
+  {
+    "name": "B123-QUEENS",
+    "len": 500,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "B124MEZZAPICA",
+    "len": 550,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B124-YAELS",
+    "len": 550,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B12555",
+    "len": 720,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "B125",
+    "len": 630,
+    "wid": 883,
+    "nUp": 2
+  },
+  {
+    "name": "B1292/500UM",
+    "len": 587,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "B1294/600UM",
+    "len": 485,
+    "wid": 690,
+    "nUp": 1
+  },
+  {
+    "name": "B13102/500UM",
+    "len": 580,
+    "wid": 980,
+    "nUp": 1
+  },
+  {
+    "name": "B134MEZZAPICA",
+    "len": 600,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "B144B",
+    "len": 600,
+    "wid": 690,
+    "nUp": 1
+  },
+  {
+    "name": "B144K",
+    "len": 500,
+    "wid": 510,
+    "nUp": 1
+  },
+  {
+    "name": "B144K",
+    "len": 740,
+    "wid": 854,
+    "nUp": 1
+  },
+  {
+    "name": "B166B",
+    "len": 510,
+    "wid": 587,
+    "nUp": 1
+  },
+  {
+    "name": "B166K",
+    "len": 550,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "BDONUT6PC-K",
+    "len": 520,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "BDUO-SML",
+    "len": 480,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "BFMTW",
+    "len": 460,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MB INSERT - 6(UNS)",
+    "len": 310,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "MB INSERT - 9(UNS)",
+    "len": 800,
+    "wid": 600,
+    "nUp": 6
+  },
+  {
+    "name": "MB10",
+    "len": 550,
+    "wid": 510,
+    "nUp": 5
+  },
+  {
+    "name": "MDL (PRINTED)",
+    "len": 410,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "ML7127",
+    "len": 580,
+    "wid": 900,
+    "nUp": 24
+  },
+  {
+    "name": "R16",
+    "len": 460,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "SB100",
+    "len": 470,
+    "wid": 587,
+    "nUp": 4
+  },
+  {
+    "name": "SB190",
+    "len": 340,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "SIL2GOLDEN",
+    "len": 330,
+    "wid": 587,
+    "nUp": 6
+  },
+  {
+    "name": "TBB",
+    "len": 510,
+    "wid": 620,
+    "nUp": 6
+  },
+  {
+    "name": "TB-BLACK",
+    "len": 490,
+    "wid": 620,
+    "nUp": 6
+  },
+  {
+    "name": "TB-KRAFT",
+    "len": 300,
+    "wid": 587,
+    "nUp": 3
+  },
+  {
+    "name": "TBM",
+    "len": 380,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "TLA",
+    "len": 360,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "TLB",
+    "len": 760,
+    "wid": 620,
+    "nUp": 4
+  },
+  {
+    "name": "TL-BLACK",
+    "len": 380,
+    "wid": 620,
+    "nUp": 2
+  },
+  {
+    "name": "TL-KRAFT",
+    "len": 350,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "TMB",
+    "len": 430,
+    "wid": 587,
+    "nUp": 4
+  },
+  {
+    "name": "TMB",
+    "len": 670,
+    "wid": 550,
+    "nUp": 4
+  },
+  {
+    "name": "TM-BLACK",
+    "len": 635,
+    "wid": 510,
+    "nUp": 4
+  },
+  {
+    "name": "TM-KRAFT",
+    "len": 430,
+    "wid": 587,
+    "nUp": 4
+  },
+  {
+    "name": "TSB",
+    "len": 300,
+    "wid": 587,
+    "nUp": 3
+  },
+  {
+    "name": "TSB",
+    "len": 490,
+    "wid": 620,
+    "nUp": 4
+  },
+  {
+    "name": "TS",
+    "len": 300,
+    "wid": 587,
+    "nUp": 3
+  },
+  {
+    "name": "TSM",
+    "len": 410,
+    "wid": 700,
+    "nUp": 3
+  },
+  {
+    "name": "TTOASTETTES-SLV",
+    "len": 420,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "TXL500",
+    "len": 650,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MP10-6",
+    "len": 450,
+    "wid": 780,
+    "nUp": 1
+  },
+  {
+    "name": "MP30-6",
+    "len": 620,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MP150-80",
+    "len": 920,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "MP250.250.165",
+    "len": 860,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MP10-10",
+    "len": 800,
+    "wid": 520,
+    "nUp": 1
+  },
+  {
+    "name": "MP15-10",
+    "len": 880,
+    "wid": 820,
+    "nUp": 1
+  },
+  {
+    "name": "MP28",
+    "len": 450,
+    "wid": 800,
+    "nUp": 3
+  },
+  {
+    "name": "MP100-80",
+    "len": 600,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MP20.5-6",
+    "len": 460,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "MP20.5-10",
+    "len": 460,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "MP23-10",
+    "len": 710,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "MP15-6",
+    "len": 520,
+    "wid": 880,
+    "nUp": 1
+  },
+  {
+    "name": "MP30-10",
+    "len": 745,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "MP165-100",
+    "len": 610,
+    "wid": 800,
+    "nUp": 2
+  },
+  {
+    "name": "Donut Garage 4pc (230x230x75)",
+    "len": 720,
+    "wid": 820,
+    "nUp": 2
+  },
+  {
+    "name": "Donut Garage 6pc (230x345x75)",
+    "len": 520,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "Donut Garage 9pc (345x345x75)",
+    "len": 440,
+    "wid": 960,
+    "nUp": 1
+  },
+  {
+    "name": "2 Piece Donut Window Box",
+    "len": 440,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "4 Piece Donut Window Box",
+    "len": 640,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "Donut King 4pc",
+    "len": 640,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "Donut King 6pc",
+    "len": 480,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "Baked Brie Box",
+    "len": 900,
+    "wid": 620,
+    "nUp": 3
+  },
+  {
+    "name": "8x8x4 (WA)",
+    "len": 440,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "12x12x5 (WA)",
+    "len": 600,
+    "wid": 965,
+    "nUp": 1
+  },
+  {
+    "name": "B13",
+    "len": 440,
+    "wid": 620,
+    "nUp": 4
+  },
+  {
+    "name": "B14",
+    "len": 630,
+    "wid": 550,
+    "nUp": 4
+  },
+  {
+    "name": "B15",
+    "len": 720,
+    "wid": 620,
+    "nUp": 4
+  },
+  {
+    "name": "B10525",
+    "len": 460,
+    "wid": 787,
+    "nUp": 2
+  },
+  {
+    "name": "Small Doses Toastie",
+    "len": 620,
+    "wid": 720,
+    "nUp": 4
+  },
+  {
+    "name": "Tiny's Toast",
+    "len": 620,
+    "wid": 620,
+    "nUp": 3
+  },
+  {
+    "name": "Toastettes Tray",
+    "len": 470,
+    "wid": 520,
+    "nUp": 4
+  },
+  {
+    "name": "Toastettes Sleeve",
+    "len": 440,
+    "wid": 720,
+    "nUp": 3
+  },
+  {
+    "name": "Dulwich Cookie (170x125x70)",
+    "len": 480,
+    "wid": 640,
+    "nUp": 2
+  },
+  {
+    "name": "Dulwich Bar Cake (195x100x80)",
+    "len": 480,
+    "wid": 740,
+    "nUp": 2
+  },
+  {
+    "name": "Dulwich 10x5x4",
+    "len": 480,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "Baked & Co 2 Muffin Box",
+    "len": 480,
+    "wid": 720,
+    "nUp": 2
+  },
+  {
+    "name": "Hot Cross Bun Window",
+    "len": 440,
+    "wid": 620,
+    "nUp": 1
+  },
+  {
+    "name": "NIKOS (7x7x4)",
+    "len": 700,
+    "wid": 820,
+    "nUp": 2
+  },
+  {
+    "name": "NIKOS (9x9x4)",
+    "len": 460,
+    "wid": 800,
+    "nUp": 1
+  },
+  {
+    "name": "WA SCOOPS",
+    "len": 530,
+    "wid": 587,
+    "nUp": 4
+  },
+  {
+    "name": "#19 Tray",
+    "len": 520,
+    "wid": 520,
+    "nUp": 4
+  },
+  {
+    "name": "Butter Boy Glued Cookie",
+    "len": 540,
+    "wid": 720,
+    "nUp": 1
+  },
+  {
+    "name": "Small Tray With Lid (Glued)",
+    "len": 440,
+    "wid": 587,
+    "nUp": 2
+  },
+  {
+    "name": "Kuki",
+    "len": 610,
+    "wid": 820,
+    "nUp": 2
+  },
+  {
+    "name": "Miss Maud Mini Scoop",
+    "len": 520,
+    "wid": 840,
+    "nUp": 8
+  },
+  {
+    "name": "Miss Maud Small Scoop",
+    "len": 620,
+    "wid": 620,
+    "nUp": 4
+  },
+  {
+    "name": "Burger Box (Crash Lock)",
+    "len": 410,
+    "wid": 820,
+    "nUp": 6
+  },
+  {
+    "name": "TSB (Glued)",
+    "len": 620,
+    "wid": 520,
+    "nUp": 6
+  },
+  {
+    "name": "Happy Meal Box",
+    "len": 580,
+    "wid": 720,
+    "nUp": 2
+  }
+]

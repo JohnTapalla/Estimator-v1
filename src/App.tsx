@@ -1,5 +1,4 @@
 
-import React, { useEffect, useMemo, useState } from 'react'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -28,6 +27,8 @@ type SizeOption = { name: string; len: number; wid: number; nUp: number }
 const DF_SHEET_SIZES: SizeOption[] = [
   { name: 'Custom', len: 720, wid: 530, nUp: 1 },
 ]
+const [sizes, setSizes] = useState<SizeOption[]>(DF_SHEET_SIZES)
+const [sizeName, setSizeName] = useState<string>('Custom')
 
 export default function App(){
   const [cfg, setCfg] = useState<any | null>(null)
@@ -120,8 +121,6 @@ export default function App(){
   const mat = materials.find((m:any)=>m.name===matName) ?? materials[1]
   const [priceMode,setPriceMode]=useState<'per_tonne'|'per_kg'>('per_tonne')
   const [price,setPrice]=useState<number>(mat.price_per_tonne)
-  const [sizes, setSizes] = useState<SizeOption[]>(DF_SHEET_SIZES)
-  const [sizeName, setSizeName] = useState<string>('Custom')
 
   const baseSheets = useMemo(()=> Math.max(0, Math.ceil((orderQty||0)/Math.max(1,nUp))), [orderQty,nUp])
   const a = (Math.max(0,len)*Math.max(0,wid))/1_000_000
@@ -563,89 +562,89 @@ export default function App(){
             </div>
           </CardContent>
         </Card>
-      </div>
-    </div>
+        
         {/* ===== Results (Report v2) – keeps V1 intact ===== */}
-<Card className="shadow-sm">
-  <CardHeader>
-    <CardTitle className="text-xl flex items-center justify-between">
-      <span>Results (Report v2)</span>
-      <button
-        type="button"
-        onClick={handlePrint}
-        className="no-print inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
-      >
-        Print report
-      </button>
-    </CardTitle>
-  </CardHeader>
+  <Card className="shadow-sm">
+    <CardHeader>
+      <CardTitle className="text-xl flex items-center justify-between">
+        <span>Results (Report v2)</span>
+        <button
+          type="button"
+          onClick={handlePrint}
+          className="no-print inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
+        >
+          Print report
+        </button>
+      </CardTitle>
+    </CardHeader>
 
-  <CardContent className="space-y-4">
-    {/* hide this on screen; only for printing */}
-    <style>{`
-      @media screen { #print-area { display: none; } }
-      @media print  { .no-print { display: none !important; } }
-    `}</style>
+    <CardContent className="space-y-4">
+      {/* hide this on screen; only for printing */}
+      <style>{`
+        @media screen { #print-area { display: none; } }
+        @media print  { .no-print { display: none !important; } }
+      `}</style>
+  
+      <div id="print-area" ref={reportRef}>
+        <h1>Quotation Summary</h1>
+        <div className="small muted">Generated: {new Date().toLocaleString()}</div>
 
-    <div id="print-area" ref={reportRef}>
-      <h1>Quotation Summary</h1>
-      <div className="small muted">Generated: {new Date().toLocaleString()}</div>
+        <div className="hr" />
+        <h2>Job</h2>
+        <div className="grid small">
+          <div className="muted">Preset</div><div className="right bold">{sizeName}</div>
+          <div className="muted">Order qty</div><div className="right">{orderQty.toLocaleString()}</div>
+          <div className="muted">Units / sheet</div><div className="right">{nUp}</div>
+          <div className="muted">Sheet length (mm)</div><div className="right">{len}</div>
+          <div className="muted">Sheet width (mm)</div><div className="right">{wid}</div>
+          <div className="muted">Material</div><div className="right">{mat.name} · {mat.gsm}gsm</div>
+        </div>
 
-      <div className="hr" />
-      <h2>Job</h2>
-      <div className="grid small">
-        <div className="muted">Preset</div><div className="right bold">{sizeName}</div>
-        <div className="muted">Order qty</div><div className="right">{orderQty.toLocaleString()}</div>
-        <div className="muted">Units / sheet</div><div className="right">{nUp}</div>
-        <div className="muted">Sheet length (mm)</div><div className="right">{len}</div>
-        <div className="muted">Sheet width (mm)</div><div className="right">{wid}</div>
-        <div className="muted">Material</div><div className="right">{mat.name} · {mat.gsm}gsm</div>
+        <div className="hr" />
+        <h2>Sheet & Process</h2>
+        <div className="grid small">
+          <div className="muted">Sheet area (m²)</div><div className="right">{a ? a.toFixed(4) : '—'}</div>
+          <div className="muted">Paper kg / sheet</div><div className="right">{paperKgPerSheet ? paperKgPerSheet.toFixed(6) : '—'}</div>
+          <div className="muted">Base sheets</div><div className="right">{baseSheets.toLocaleString()}</div>
+          <div className="muted">Die MR (sheets)</div><div className="right">{dieWasteSheets.toLocaleString()}</div>
+          <div className="muted">Lam MR (sheets)</div><div className="right">{lamWasteSheets.toLocaleString()}</div>
+          ${printOn ? `
+            <div class="muted">Print MR (sheets)</div><div class="right">${(printing?.mrSheets ?? 0).toLocaleString?.() || printing.mrSheets}</div>
+            <div class="muted">Sheets to print</div><div class="right">${(printing?.printSheets ?? 0).toLocaleString?.() || printing.printSheets}</div>
+          ` : ''}
+        </div>
+
+        <div className="hr" />
+        <h2>Cost breakdown (per unit)</h2>
+        <table>
+          <thead><tr><th>Component</th><th className="right">$/unit</th></tr></thead>
+          <tbody>
+            <tr><td>Material</td><td className="right">{money.format(materialPerUnit||0)}</td></tr>
+            <tr><td>Sheeting</td><td className="right">{money.format(sheeting.perUnit||0)}</td></tr>
+            <tr><td>Die cut</td><td className="right">{money.format(diecut.perUnit||0)}</td></tr>
+            <tr><td>Printing</td><td className="right">{money.format(printing.perUnit||0)}</td></tr>
+            <tr><td>Lamination</td><td className="right">{money.format(lamination.perUnit||0)}</td></tr>
+            <tr><td>Window patch</td><td className="right">{money.format(windowPatch.perUnit||0)}</td></tr>
+            <tr><td>Gluing</td><td className="right">{money.format(gluing.perUnit||0)}</td></tr>
+            <tr><td className="bold">Combined unit cost</td><td className="right bold">{money.format(unitCost||0)}</td></tr>
+          </tbody>
+        </table>
+
+        <div className="hr" />
+        <h2>Pricing</h2>
+        <div className="grid small">
+          <div className="muted">Sell / unit (ex-GST)</div><div className="right bold">{money.format(sellPer1000/1000)}</div>
+          <div className="muted">Sell / 1,000 (ex-GST)</div><div className="right bold">{money.format(sellPer1000)}</div>
+          <div className="muted">Order total (ex-GST)</div><div className="right">{money.format(orderEx)}</div>
+          <div className="muted">GST (10%)</div><div className="right">{money.format(orderInc-orderEx)}</div>
+          <div className="muted">Total inc-GST</div><div className="right bold">{money.format(orderInc)}</div>
+          <div className="muted">Margin achieved</div><div className="right">{(marginAch*100).toFixed(1)}%</div>
+          <div className="muted">Markup achieved</div><div className="right">{(markupAch*100).toFixed(1)}%</div>
+        </div>
       </div>
-
-      <div className="hr" />
-      <h2>Sheet & Process</h2>
-      <div className="grid small">
-        <div className="muted">Sheet area (m²)</div><div className="right">{a ? a.toFixed(4) : '—'}</div>
-        <div className="muted">Paper kg / sheet</div><div className="right">{paperKgPerSheet ? paperKgPerSheet.toFixed(6) : '—'}</div>
-        <div className="muted">Base sheets</div><div className="right">{baseSheets.toLocaleString()}</div>
-        <div className="muted">Die MR (sheets)</div><div className="right">{dieWasteSheets.toLocaleString()}</div>
-        <div className="muted">Lam MR (sheets)</div><div className="right">{lamWasteSheets.toLocaleString()}</div>
-        ${printOn ? `
-          <div class="muted">Print MR (sheets)</div><div class="right">${(printing?.mrSheets ?? 0).toLocaleString?.() || printing.mrSheets}</div>
-          <div class="muted">Sheets to print</div><div class="right">${(printing?.printSheets ?? 0).toLocaleString?.() || printing.printSheets}</div>
-        ` : ''}
-      </div>
-
-      <div className="hr" />
-      <h2>Cost breakdown (per unit)</h2>
-      <table>
-        <thead><tr><th>Component</th><th className="right">$/unit</th></tr></thead>
-        <tbody>
-          <tr><td>Material</td><td className="right">{money.format(materialPerUnit||0)}</td></tr>
-          <tr><td>Sheeting</td><td className="right">{money.format(sheeting.perUnit||0)}</td></tr>
-          <tr><td>Die cut</td><td className="right">{money.format(diecut.perUnit||0)}</td></tr>
-          <tr><td>Printing</td><td className="right">{money.format(printing.perUnit||0)}</td></tr>
-          <tr><td>Lamination</td><td className="right">{money.format(lamination.perUnit||0)}</td></tr>
-          <tr><td>Window patch</td><td className="right">{money.format(windowPatch.perUnit||0)}</td></tr>
-          <tr><td>Gluing</td><td className="right">{money.format(gluing.perUnit||0)}</td></tr>
-          <tr><td className="bold">Combined unit cost</td><td className="right bold">{money.format(unitCost||0)}</td></tr>
-        </tbody>
-      </table>
-
-      <div className="hr" />
-      <h2>Pricing</h2>
-      <div className="grid small">
-        <div className="muted">Sell / unit (ex-GST)</div><div className="right bold">{money.format(sellPer1000/1000)}</div>
-        <div className="muted">Sell / 1,000 (ex-GST)</div><div className="right bold">{money.format(sellPer1000)}</div>
-        <div className="muted">Order total (ex-GST)</div><div className="right">{money.format(orderEx)}</div>
-        <div className="muted">GST (10%)</div><div className="right">{money.format(orderInc-orderEx)}</div>
-        <div className="muted">Total inc-GST</div><div className="right bold">{money.format(orderInc)}</div>
-        <div className="muted">Margin achieved</div><div className="right">{(marginAch*100).toFixed(1)}%</div>
-        <div className="muted">Markup achieved</div><div className="right">{(markupAch*100).toFixed(1)}%</div>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
+    </CardContent>
+  </Card>
+  </div>
+</div>
   )
 }

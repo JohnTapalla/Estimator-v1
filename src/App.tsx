@@ -256,7 +256,7 @@ export default function App(){
               </div>
 
               {/* NEW: Size preset (auto-fills Len/Wid/UP) */}
-              <div className="md:col-span-2">
+              <div>
                 <Label>Sheet size</Label>
                 <Select
                   value={sizeName}

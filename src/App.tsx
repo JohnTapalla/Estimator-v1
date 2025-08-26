@@ -274,7 +274,7 @@ export default function App(){
                 <SelectContent className="max-h-72">
                   {sizes.map((s)=> (
                     <SelectItem key={s.name} value={s.name}>
-                    {s.name} — {s.len}×{s.wid}mm · {s.nUp} up
+                    {s.name}
                   </SelectItem>
                 ))}
               </SelectContent>

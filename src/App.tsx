@@ -27,8 +27,6 @@ type SizeOption = { name: string; len: number; wid: number; nUp: number }
 const DF_SHEET_SIZES: SizeOption[] = [
   { name: 'Custom', len: 720, wid: 530, nUp: 1 },
 ]
-const [sizes, setSizes] = useState<SizeOption[]>(DF_SHEET_SIZES)
-const [sizeName, setSizeName] = useState<string>('Custom')
 
 export default function App(){
   const [cfg, setCfg] = useState<any | null>(null)
@@ -121,6 +119,8 @@ export default function App(){
   const mat = materials.find((m:any)=>m.name===matName) ?? materials[1]
   const [priceMode,setPriceMode]=useState<'per_tonne'|'per_kg'>('per_tonne')
   const [price,setPrice]=useState<number>(mat.price_per_tonne)
+  const [sizes, setSizes] = useState<SizeOption[]>(DF_SHEET_SIZES)
+  const [sizeName, setSizeName] = useState<string>('Custom')
 
   const baseSheets = useMemo(()=> Math.max(0, Math.ceil((orderQty||0)/Math.max(1,nUp))), [orderQty,nUp])
   const a = (Math.max(0,len)*Math.max(0,wid))/1_000_000

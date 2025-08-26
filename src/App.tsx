@@ -520,7 +520,15 @@ export default function App(){
         </Card>
 
         <Card className="shadow-sm">
-          <CardHeader><CardTitle className="text-xl">Results</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-xl">Results</CardTitle>
+              <button
+                type="button"
+                onClick={handlePrint}
+                className="no-print inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
+              >
+              Print report
+              </button>
+          </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-end -mb-2">
               <label htmlFor="adminMode" className="text-xs text-gray-600 mr-2">Admin mode</label>

@@ -494,8 +494,7 @@ export default function App(){
             </div>
 
             <div className="text-gray-600">Preset</div>
-            <div className="text-right font-medium">{sizeName}</div>
-            <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="text-right font-medium">{sizeName}</div><div className="grid grid-cols-2 gap-2 text-sm">
               <div className="text-gray-600">Sheet area (m²)</div><div className="text-right font-medium">{a? a.toFixed(4):'—'}</div>
               <div className="text-gray-600">Paper kg / sheet</div><div className="text-right font-medium">{paperKgPerSheet? paperKgPerSheet.toFixed(6):'—'}</div>
               <div className="text-gray-600">Base sheets</div><div className="text-right font-medium">{baseSheets.toLocaleString()}</div>

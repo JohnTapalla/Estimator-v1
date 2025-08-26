@@ -287,6 +287,7 @@ export default function App(){
               type="number"
               inputMode="numeric"
               value={nUp}
+              disabled={sizeName!=='Custom'}
               onChange={(e)=>{
                 setNUp(Math.max(1, Number(e.target.value)))
                 setSizeName('Custom') // manual edit -> becomes Custom
@@ -300,9 +301,11 @@ export default function App(){
               type="number"
               inputMode="numeric"
               value={len}
+              disabled={sizeName!=='Custom'}
               onChange={(e)=>{
-              setLen(Number(e.target.value))
-              setSizeName('Custom')
+                setLen(Number(e.target.value))
+                setSizeName('Custom')
+                
             }}
           />
         </div>
@@ -313,6 +316,7 @@ export default function App(){
             type="number"
             inputMode="numeric"
             value={wid}
+            disabled={sizeName!=='Custom'}
             onChange={(e)=>{
               setWid(Number(e.target.value))
               setSizeName('Custom')

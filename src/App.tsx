@@ -573,19 +573,6 @@ export default function App(){
         
         {/* ===== Results (Report v2) – keeps V1 intact ===== */}
   <Card className="shadow-sm">
-    <CardHeader>
-      <CardTitle className="text-xl flex items-center justify-between">
-        <span>Results (Report v2)</span>
-        <button
-          type="button"
-          onClick={handlePrint}
-          className="no-print inline-flex items-center rounded-lg border px-3 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
-        >
-          Print report
-        </button>
-      </CardTitle>
-    </CardHeader>
-
     <CardContent className="space-y-4">
       {/* hide this on screen; only for printing */}
       <style>{`

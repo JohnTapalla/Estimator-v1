@@ -21,10 +21,10 @@ const DF_WP_FILMS = [
   { key: 'pet', name: 'PET', gsm: 103, price_per_tonne: 4150 },
   { key: 'ca', name: 'Cellulose Acetate', gsm: 97, price_per_tonne: 28500 },
 ] as const
-type SizeOption = { name: string; len: number; wid: number; }
+type SizeOption = { name: string; len: number; wid: number; nUp: number }
 
 const DF_SHEET_SIZES: SizeOption[] = [
-  { name: 'Custom', len: 720, wid: 530 },
+  { name: 'Custom', len: 720, wid: 530, nUp: 1 },
 ]
 
 export default function App(){

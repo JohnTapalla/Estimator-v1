@@ -32,6 +32,20 @@ export default function App(){
   useEffect(()=>{
     fetch('/app-config.json').then(r=>r.ok?r.json():Promise.reject()).then(setCfg).catch(()=>{})
   }, [])
+  useEffect(()=>{
+  // If sizes are provided in app-config.json, prefer those
+  if (cfg?.sizes && Array.isArray(cfg.sizes) && cfg.sizes.length) {
+    setSizes(cfg.sizes as SizeOption[])
+    return
+  }
+  // Otherwise, try public/sheet-sizes.json (the file generated from Excel)
+  fetch('/sheet-sizes.json')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then((list: SizeOption[]) => {
+      if (Array.isArray(list) && list.length) setSizes(list)
+    })
+    .catch(()=>{})
+}, [cfg])
 
   const materials = cfg?.materials ?? DF_MATERIALS
   const qtyOpts = cfg?.qtyOptions ?? DF_QTY
@@ -233,22 +247,79 @@ export default function App(){
                 <Label>Order qty</Label>
                 <Select value={String(orderQty)} onValueChange={(v)=>setOrderQty(Number(v))}>
                   <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent className="max-h-72">{(qtyOpts||DF_QTY).map((q:number)=> <SelectItem key={q} value={String(q)}>{q.toLocaleString()}</SelectItem>)}</SelectContent>
+                  <SelectContent className="max-h-72">
+                    {(qtyOpts||DF_QTY).map((q:number)=> (
+                      <SelectItem key={q} value={String(q)}>{q.toLocaleString()}</SelectItem>
+                    ))}
+                  </SelectContent>
                 </Select>
               </div>
-              <div>
-                <Label>Units / sheet</Label>
-                <Input type="number" inputMode="numeric" value={nUp} onChange={(e)=>setNUp(Math.max(1,Number(e.target.value)))} />
-              </div>
-              <div>
-                <Label>Sheet length (mm)</Label>
-                <Input type="number" inputMode="numeric" value={len} onChange={(e)=>setLen(Number(e.target.value))} />
-              </div>
-              <div>
-                <Label>Sheet width (mm)</Label>
-                <Input type="number" inputMode="numeric" value={wid} onChange={(e)=>setWid(Number(e.target.value))} />
-              </div>
-            </div>
+
+              {/* NEW: Size preset (auto-fills Len/Wid/UP) */}
+              <div className="md:col-span-2">
+                <Label>Sheet size</Label>
+                <Select
+                  value={sizeName}
+                  onValueChange={(v)=>{
+                  setSizeName(v)
+                  const sel = sizes.find(s=>s.name===v)
+                  if (sel) {
+                    setLen(sel.len)
+                    setWid(sel.wid)
+                    setNUp(sel.nUp)
+                  }
+                }}
+              >
+                <SelectTrigger><SelectValue placeholder="Select size" /></SelectTrigger>
+                <SelectContent className="max-h-72">
+                  {sizes.map((s)=> (
+                    <SelectItem key={s.name} value={s.name}>
+                    {s.name} — {s.len}×{s.wid}mm · {s.nUp} up
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <Label>Units / sheet</Label>
+            <Input
+              type="number"
+              inputMode="numeric"
+              value={nUp}
+              onChange={(e)=>{
+                setNUp(Math.max(1, Number(e.target.value)))
+                setSizeName('Custom') // manual edit -> becomes Custom
+              }}
+            />
+          </div>
+
+          <div>
+            <Label>Sheet length (mm)</Label>
+            <Input
+              type="number"
+              inputMode="numeric"
+              value={len}
+              onChange={(e)=>{
+              setLen(Number(e.target.value))
+              setSizeName('Custom')
+            }}
+          />
+        </div>
+
+        <div>
+          <Label>Sheet width (mm)</Label>
+          <Input
+            type="number"
+            inputMode="numeric"
+            value={wid}
+            onChange={(e)=>{
+              setWid(Number(e.target.value))
+              setSizeName('Custom')
+            }}
+          />
+        </div>
+      </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
               <div>
@@ -417,7 +488,9 @@ export default function App(){
               <label htmlFor="adminMode" className="text-xs text-gray-600 mr-2">Admin mode</label>
               <input id="adminMode" type="checkbox" className="h-3 w-3" checked={admin} onChange={(e)=>setAdmin(e.target.checked)} />
             </div>
-        
+
+            <div className="text-gray-600">Preset</div>
+              <div className="text-right font-medium">{sizeName}</div>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div className="text-gray-600">Sheet area (m²)</div><div className="text-right font-medium">{a? a.toFixed(4):'—'}</div>
               <div className="text-gray-600">Paper kg / sheet</div><div className="text-right font-medium">{paperKgPerSheet? paperKgPerSheet.toFixed(6):'—'}</div>

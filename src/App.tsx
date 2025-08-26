@@ -242,7 +242,7 @@ export default function App(){
             </div>
         
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
               <div>
                 <Label>Order qty</Label>
                 <Select value={String(orderQty)} onValueChange={(v)=>setOrderQty(Number(v))}>
